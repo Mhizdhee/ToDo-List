@@ -5,9 +5,9 @@ const buttonElem = document.querySelector("#push");
 const myListItem = document.querySelector(".listItem");
 
 let list = JSON.parse(localStorage.getItem("list"));
-list.forEach(task=>{
-    addButton(task)
-})
+// list.forEach(task=>{
+//     addButton(task)
+// })
 
 myForm.addEventListener("submit", (event) => {
   event.preventDefault(); //it prevents the page from being refreshed
@@ -38,17 +38,27 @@ if(newTasks === ""){
   myInput.value = ""; //makes the input element empty when we press enter i.e reset our input field
   liElem.style.border = "none";
   liElem.style.backgroundColor = "lightblue";
+  const editBtnElem = document.createElement("div");
+  editBtnElem.innerHTML=`<i class="fa-solid fa-pen-to-square"></i>`;
+  liElem.appendChild(editBtnElem);// this append the edit icon to the list element
+
+  editBtnElem.addEventListener("click", ()=>{
+    liElem.edit(newTasks);
+
+    updateLocalStorage();
+  })
+
   const delBtnElem = document.createElement("div");
   delBtnElem.innerHTML = `<i class="fa-solid fa-trash"></i>`;
   liElem.appendChild(delBtnElem);//this append the del icon  to the list element/
-
-
+//   delBtnElem.classList.add("div");
+  
   delBtnElem.addEventListener("click", ()=>{
     liElem.remove();
     updateLocalStorage();
 })
     
-  
+ 
 updateLocalStorage();
 }
 

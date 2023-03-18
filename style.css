@@ -4,13 +4,22 @@
   box-sizing: border-box;
 }
 
+
 body {
   background-color: steelblue;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family:Lato, sans-serif;
 }
-
+h1{
+  color: white;
+  /* margin-top: 10%; */
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 0px;
+  
+}
 .container {
   background-color: white;
   width: 400px;
@@ -47,24 +56,27 @@ button {
   list-style: none;
   padding: 8px;
   width: 85%;
+  /* margin: 10px; */
   margin: 10px 0 10px 20px;
+  display: flex;
+  justify-content:space-between ;
+  align-items: center;
+}
+
+
+
+.listItem li .fa-pen-to-square {
+color: green;
+  position: relative;
+  left: 100px;
+  bottom:15%;
+  transform: translateX(-10%);
+  cursor: pointer;  
 }
 
 .listItem li .fa-trash {
   color: blue;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin-bottom: auto;
+  cursor: pointer;
+ 
 
-}
-
-.listItem li .fa-pen-to-square {
-  color: green;
-  position: absolute;
-  right: 10px;
-  top: 80px;
-  /*   display: flex;
-    justify-content:flex-end;
-    align-items: center; */
 }
