@@ -1,3 +1,4 @@
+window.addEventListener('load', ()=> {
 const myForm = document.querySelector(".form");
 const myInput = document.querySelector("#input");
 const buttonElem = document.querySelector("#push");
@@ -14,17 +15,17 @@ myForm.addEventListener("submit", (event) => {
 });
 
 buttonElem.addEventListener("click", addButton);
-let newTask = myInput.value;// this stores the input
 
 function addButton(task) {
-    let newTask = myInput.value;// this stores the input
+    let newTasks = myInput.value;// this stores the input
 
 //   if(task){
-//     newTask = task.name
+//   newTasks = task.name
+  
 
-// }
+// } 
 
-  if(newTask === ""){
+if(newTasks === ""){
     alert("field cannot be empty");// this gives an error message when the input field is empty
     return;
   }
@@ -32,7 +33,7 @@ function addButton(task) {
   
   const liElem = document.createElement("li"); // this create a list item 
  
-  liElem.innerText = newTask; // asssign our input value to the list element
+  liElem.innerText = newTasks; // asssign our input value to the list element
   myListItem.prepend(liElem); //  the prepend shows the most recent item on the list 
   myInput.value = ""; //makes the input element empty when we press enter i.e reset our input field
   liElem.style.border = "none";
@@ -44,7 +45,7 @@ function addButton(task) {
 
   delBtnElem.addEventListener("click", ()=>{
     liElem.remove();
-    updateLocalStorage()
+    updateLocalStorage();
 })
     
   
@@ -68,3 +69,4 @@ function updateLocalStorage(){
 
 
 
+});
