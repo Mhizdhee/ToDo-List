@@ -1,16 +1,20 @@
 window.addEventListener('load', ()=> {
+    let list = JSON.parse(localStorage.getItem("list")) || [];
+
 const myForm = document.querySelector(".form");
 const myInput = document.querySelector("#input");
 const buttonElem = document.querySelector("#push");
 const myListItem = document.querySelector(".listItem");
 
-let list = JSON.parse(localStorage.getItem("list"));
 // list.forEach(task=>{
 //     addButton(task)
 // })
 
 myForm.addEventListener("submit", (event) => {
   event.preventDefault(); //it prevents the page from being refreshed
+
+  
+
   
 });
 
@@ -25,7 +29,7 @@ function addButton(task) {
 
 // } 
 
-if(newTasks === ""){
+if(!newTasks){
     alert("field cannot be empty");// this gives an error message when the input field is empty
     return;
   }
@@ -39,11 +43,12 @@ if(newTasks === ""){
   liElem.style.border = "none";
   liElem.style.backgroundColor = "lightblue";
   const editBtnElem = document.createElement("div");
+  editBtnElem.classList.add(".fa-pen-to-square");
   editBtnElem.innerHTML=`<i class="fa-solid fa-pen-to-square"></i>`;
   liElem.appendChild(editBtnElem);// this append the edit icon to the list element
 
   editBtnElem.addEventListener("click", ()=>{
-    liElem.edit(newTasks);
+    liElem.
 
     updateLocalStorage();
   })
@@ -75,8 +80,7 @@ function updateLocalStorage(){
     localStorage.setItem("list", JSON.stringify(list));
 
 }
-
-
+ 
 
 
 });
